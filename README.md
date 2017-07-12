@@ -1,2 +1,2 @@
-# Todois
-Aplikacja do robienia listy zadań
+﻿# Todois
+OOP PHP project
