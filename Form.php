@@ -10,7 +10,7 @@ session_start();
     <title>Todois</title>
 </head>
 <body>
-<form action="Main.php" method="POST">
+<form action="index.php" method="POST">
     <fieldset>
         <legend>Dodaj zadanie</legend>
         <p>Nazwa zadania</p>
