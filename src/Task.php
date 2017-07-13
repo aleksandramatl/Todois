@@ -1,36 +1,21 @@
 <?php
 class Task {
-    private $name;
-    private $description;
+    private $taskName;
+    private $content;
     private $status;
     private $prioryty = null;
     private $date = null;
-
-    public function __construct($name, $description, $prioryty = null, $date = null){
-        $this->setName($name);
-        $this->setDescription($description);
-        $this->status = false;
-        $this->setPriority($priority);
-        $this->setDate($date);
+    public function setTaskName($taskName) {
+        $this->taskName = $taskName;
     }
-    
-
-
-
-    public function setDescription($description){
-        $this->description = is_string($description) ? $description : null;
-        //$this->description = $description;
+    public function getTaskName() {
+        return $this->taskName;
     }
-    public function getDescription(){
-        return $this->description;
+    public function setContent($content) {
+        $this->content = $content;
     }
-
-    public function getName(){
-        return $this->name;
-    }
-    public function setName($name){
-        $this->name = is_string($name) ? $name : '';
-        //$this->name = $name;
+    public function getContent() {
+        return $this->content;
     }
     public function getStatus() {
         return $this->status;
@@ -63,31 +48,39 @@ class Task {
             return false;
         }
     }
-    public function viewTask(){
-        echo $this->getName().": ".$this->getDescription();
+    public function __construct($taskName, $content, $prioryty = null, $date = null) {
+        $this->setTaskName($taskName);
+        $this->setContent($content);
+        $this->status = false;
+        $this->setPrioryty($prioryty);
+        $this->setDate($date);
     }
-    public function viewName () {
+    public function displayTask () {
+        echo $this->getTaskName().": ".$this->getContent();
+    }
+    public function displayTaskName () {
         if ($this->getStatus() == false) {
             if ($this->checkOverdue()) {
-                return '<td class="text-uppercase text-danger"><strong>'.$this->getName().':</strong></td>';
+                return '<td class="text-uppercase text-danger"><strong>'.$this->getTaskName().':</strong></td>';
             } else {
-                return '<td class="text-uppercase"><strong>'.$this->getName().':</strong></td>';
+                return '<td class="text-uppercase"><strong>'.$this->getTaskName().':</strong></td>';
             }
         } else {
-            return '<td class="text-uppercase"><s><strong>'.$this->getName().':</strong></s></td>';
+            return '<td class="text-uppercase"><s><strong>'.$this->getTaskName().':</strong></s></td>';
         }
     }
-    public function viewDescription() {
+    public function displayContent () {
         if ($this->getStatus() == false) {
             if ($this->checkOverdue()) {
-                return '<td class="text-danger">'.$this->getDescription().'</td>';
+                return '<td class="text-danger">'.$this->getContent().'</td>';
             } else {
-                return '<td>'.$this->getDescription().'</td>';
+                return '<td>'.$this->getContent().'</td>';
             }
         } else {
-            return '<td><s>'.$this->getDescription().'</s></td>';
+            return '<td><s>'.$this->getContent().'</s></td>';
         }
-    }public function displayPrioryty () {
+    }
+    public function displayPrioryty () {
         if ($this->getPrioryty() != null) {
             return '<td><img src="img/'.$this->getPrioryty().'.png" title="'.$this->getPrioryty().'"></td>';
         } else {
@@ -105,8 +98,5 @@ class Task {
             return '<td>Brak</td>';
         }
     }
-
-
 }
-
 ?>

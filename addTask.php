@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+//do wyswietlenia w formularzu mozliwosci wyboru piorytetu
 function displayPrioryty () {
     echo 'Ustaw Priorytet:'.'<br>';
     echo '<select name="prioryty" class="form-control">
@@ -10,7 +10,7 @@ function displayPrioryty () {
           </select>';
     echo '<br>';
 }
-
+//do wyswietlenia w formularzu mozliwosci ustawienia terminu
 function displayDate () {
     echo 'Podaj termin:'.'<br>';
     echo '<input type="datetime-local" name="deadline">';
@@ -22,7 +22,7 @@ function displayDate () {
 <html lang="pl">
 <head>
     <meta charset="utf-8">
-    <title>Todois</title>
+    <title>Warsztaty nr 2 - Aplikacja Todois</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
 </head>
 <body>
